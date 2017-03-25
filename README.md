@@ -49,7 +49,7 @@ Check all containers are stopped
 - ```docker ps```
 
 Run command inside a container
-- ```docker-compose run CONTAINER COMMAND``` (ex: docker-compose run web rake db:migrate, /bin/bash)
+- ```docker-compose run CONTAINER COMMAND``` (ex: docker-compose run web rake db:migrate)
 
 Rebuild a container in case the DockerFile change:
 - ```docker-compose build CONTAINER```
