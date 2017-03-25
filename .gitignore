@@ -1,0 +1,11 @@
+my-rails-app/*
+!my-rails-app/.gitkeep
+sql-data/*
+!sql-data/.gitkeep
+redis-data/*
+!redis-data/.gitkeep
+bundle/*
+!bundle/.gitkeep
+.DS_Store
+.env
+*.log

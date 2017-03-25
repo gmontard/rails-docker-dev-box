@@ -1,0 +1,8 @@
+version: "2"
+syncs:
+  myapp-web-sync:
+    src: './my-rails-app'
+    dest: '/app'
+  myapp-bundle-sync:
+    src: './bundle'
+    dest: '/bundle'

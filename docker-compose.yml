@@ -1,0 +1,66 @@
+version: '2'
+services:
+  # db:
+  #   image: mysql
+  #   volumes:
+  #     - ./sql-data:/var/lib/mysql
+  #   ports:
+  #     - "3306:3306"
+  #   environment:
+  #     MYSQL_DATABASE: rails_development
+  #     MYSQL_USER: rails
+  #     MYSQL_PASSWORD: rails
+  #     MYSQL_ROOT_PASSWORD: root
+  db:
+    image: postgres
+    volumes:
+      - ./sql-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: rails_development
+      POSTGRES_USER: rails
+      POSTGRES_PASSWORD: rails
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis-data:/data
+
+  web:
+    build: .
+    command: sh scripts/start-dev.sh
+    volumes:
+      - myapp-web-sync:/app:rw
+      - myapp-bundle-sync:/bundle:rw
+      - ./keys:/root/.ssh/
+    ports:
+      - "3000:3000"
+    environment:
+      REDIS_URL: redis://redis:6379
+      MYSQL_USER: rails
+      MYSQL_PASSWORD: rails
+    links:
+      - db
+      - redis
+
+  job:
+    build: .
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    volumes:
+      - myapp-web-sync:/app:rw
+      - myapp-bundle-sync:/bundle:rw
+      - ./keys:/root/.ssh/
+    environment:
+      REDIS_URL: redis://redis:6379
+    links:
+      - db
+      - redis
+
+volumes:
+  myapp-web-sync:
+    external: true
+  myapp-bundle-sync:
+    external: true
