@@ -1,3 +1,5 @@
+![](http://i.imgur.com/GpOR4F5.png)
+
 Simple, easy and replicable Rails dev environment for your Mac - using Docker, Docker-Compose and Docker-Sync
 ---
 
@@ -35,7 +37,7 @@ First install:
 docker-sync-stack start
 ```
 
-### Usefull commands
+### Useful Commands
 
 Start all containers:
 - ```docker-sync-stack start```
