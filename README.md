@@ -18,7 +18,7 @@ Web/Job containers **sync code base from your Rails App in realtime**, letting y
 ### Pre-requisite
 
 First install:
-- [Docket Toolbox](https://www.docker.com/products/docker-toolbox)
+- [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
 - ```gem install docker-sync```
 - ```brew install unison```
 
