@@ -11,7 +11,6 @@ RUN apt-get update && apt-get install -y \
     libmagickcore-dev \
     libmagickwand-dev \
     libpq-dev \
-    ffmpegthumbnailer \
   && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /app
