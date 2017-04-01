@@ -37,7 +37,7 @@ First install:
 docker-sync-stack start
 ```
 
-### Useful Commands
+### Important Commands
 
 Start all containers:
 - ```docker-sync-stack start```
@@ -57,6 +57,30 @@ Rebuild a container in case the DockerFile change:
 Need to debug a container?
 - ```docker-compose run CONTAINER /bin/bash```
 
+
+### Type less with ZSH Alias!
+
+```vi ~/.zshrc```
+
+```
+# Add those lines
+alias dss="docker-sync-stack"
+alias dbe="docker-compose run web bundle exec"
+alias dbi="docker-compose run web bundle install"
+```
+
+Reload ZSH
+```
+source ~/.zshrc
+```
+
+And now enjoy the simple commands like:
+- ```dss start```
+- ```dbe rails c```
+- ```dbe rails restart```
+- ```dbi```
+
+And obviously create your own! 
 
 ### Miscs
 
