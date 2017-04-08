@@ -58,6 +58,27 @@ Need to debug a container?
 - ```docker-compose run CONTAINER /bin/bash```
 
 
+### How to use ByeBug (or Pry)
+
+To access ByeBug interactive shell you need to:
+
+- Get the "web" container name by running: ``` docker ps --format "{{.Names}}" ```
+
+- ```docker attach WEB_CONTAINER_NAME```
+
+And voila!
+
+One thing to note, if you ```CTRL+C``` the interactive shell you will also kill the container, you need to press ```CTRL+Q``` and then ```CTRL+P``` to safely exit it.
+
+We are able to do this because we did start the "web" container with two options:
+```
+# docker-compose.yml
+web:
+  ...
+  tty: true
+  stdin_open: true
+```
+
 ### Type less with ZSH Alias!
 
 ```vi ~/.zshrc```
@@ -80,7 +101,7 @@ And now enjoy the simple commands like:
 - ```dbe rails restart```
 - ```dbi```
 
-And obviously create your own! 
+And obviously create your own!
 
 ### Miscs
 

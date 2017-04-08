@@ -45,6 +45,8 @@ services:
     links:
       - db
       - redis
+    tty: true
+    stdin_open: true
 
   job:
     build: .
