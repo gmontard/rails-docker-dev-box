@@ -11,9 +11,9 @@ This is a boilerplate Docker environment for you Rails App letting you **code on
 - **Web container** (your rails app)
 - **Job Container** (Sidekiq instance)
 
-Bundler Gems, DB and Redis data are **persisted accross restart!**
-
 Web/Job containers **sync code base from your Rails App in realtime**, letting you code on you Mac and run in the same time everything from the container
+
+Bundler Gems, DB and Redis data are **persisted accross restart!** and you can use ByeBug or Pry out of the box with a simple command!
 
 ### Pre-requisite
 
