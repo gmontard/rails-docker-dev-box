@@ -57,27 +57,9 @@ Rebuild a container in case the DockerFile change:
 Need to debug a container?
 - ```docker-compose run CONTAINER /bin/bash```
 
+Need to access ByeBug or Pry interactve shell?
+- ```docker attach $(docker-compose ps -q web)``` :warning: DO NOT use ```CTRL+C``` here or it will exit the container but use ```CTRL+Q+P```
 
-### How to use ByeBug (or Pry)
-
-To access ByeBug interactive shell you need to:
-
-- Get the "web" container name by running: ``` docker ps --format "{{.Names}}" ```
-
-- ```docker attach WEB_CONTAINER_NAME```
-
-And voila!
-
-One thing to note, if you ```CTRL+C``` the interactive shell you will also kill the container, you need to press ```CTRL+Q``` and then ```CTRL+P``` to safely exit it.
-
-We are able to do this because we did start the "web" container with two options:
-```
-# docker-compose.yml
-web:
-  ...
-  tty: true
-  stdin_open: true
-```
 
 ### Type less with ZSH Alias!
 
@@ -88,6 +70,9 @@ web:
 alias dss="docker-sync-stack"
 alias dbe="docker-compose run web bundle exec"
 alias dbi="docker-compose run web bundle install"
+function ddbug(){
+  docker attach $(docker-compose ps -q $1)
+}
 ```
 
 Reload ZSH
@@ -100,6 +85,7 @@ And now enjoy the simple commands like:
 - ```dbe rails c```
 - ```dbe rails restart```
 - ```dbi```
+- ```ddbug web```
 
 And obviously create your own!
 
