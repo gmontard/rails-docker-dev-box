@@ -1,6 +1,5 @@
-![](http://i.imgur.com/GpOR4F5.png)
 
-Simple, easy and replicable Rails dev environment for your Mac - using Docker, Docker-Compose and Docker-Sync
+UPDATE: You can now use the [DockRails](https://github.com/gmontard/dockrails/) Gem to build your Docker Rails Enironment with a simple CLI
 ---
 
 ### About
