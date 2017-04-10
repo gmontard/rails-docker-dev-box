@@ -21,17 +21,21 @@ First install:
 - [Docker Toolbox](https://www.docker.com/products/docker-toolbox)
 - ```gem install docker-sync```
 - ```brew install unison```
+- ```git clone git@github.com:gmontard/rails-docker-dev-box.git```
+- ```cd rails-dev-box && mkdir data/sql```
 
 
 ### Steps
 
 1. Clone you Rails app inside the "my-rails-app" folder (*If you rename it make sure to change the name in the docker-sync file*)
 
-2. Add the */scripts* folder into your Rails App (or at least the *start-dev.sh* file inside it if you already have one)
+2. Move the ```scripts/``` folder into your Rails App root folder
 
-3. Check the *docker-compose.yml* ENV variables for Redis/SQL and setup your *database.yml* file.
+3. Create a ```data/sql``` folder *(info: adding a .gitkeep inside will make the PG container fail)*
 
-4. Running everything
+3. Check the *docker-compose.yml* ENV variables for Redis/SQL and setup your *database.yml* in your Rails App file.
+
+4. Run everything
 
 ```
 docker-sync-stack start

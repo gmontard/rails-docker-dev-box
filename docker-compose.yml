@@ -3,7 +3,7 @@ services:
   # db:
   #   image: mysql
   #   volumes:
-  #     - ./sql-data:/var/lib/mysql
+  #     - ./data/sql:/var/lib/mysql
   #   ports:
   #     - "3306:3306"
   #   environment:
@@ -14,7 +14,7 @@ services:
   db:
     image: postgres
     volumes:
-      - ./sql-data:/var/lib/postgresql/data
+      - ./data/sql:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     environment:
@@ -27,7 +27,7 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - ./redis-data:/data
+      - ./data/redis:/data
 
   web:
     build: .
